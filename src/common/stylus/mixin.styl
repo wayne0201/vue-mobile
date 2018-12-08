@@ -125,10 +125,10 @@ border-none()
     display: none
 
 // 高清图片，匹配相应的2x 3x图
-bg-image($url)
-  background-image: url($url + "@2x.png")
+bg-image($url, $ext = ".png")
+  background-image: url($url + "@2x" + $ext)
   @media (min-resolution: 3dppx)
-    background-image: url($url + "@3x.png")
+    background-image: url($url + "@3x" + $ext)
 
 //以iphone6屏幕为标准屏幕的宽度
 $design-width ?= 375px
