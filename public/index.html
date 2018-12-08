@@ -1,17 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0">
-    <link rel="icon" href="<%= BASE_URL %>favicon.ico">
-    <title>vue-mobile</title>
-  </head>
-  <body>
-    <noscript>
-      <strong>We're sorry but vue-mobile doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
-    </noscript>
-    <div id="app"></div>
-    <!-- built files will be auto injected -->
-  </body>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <!-- 视口缩放为1.0 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="icon" href="<%= BASE_URL %>favicon.ico">
+  <title>vue-mobile</title>
+  <script type="text/javascript">
+    (function auto(doc, win) {
+      // 根节点font-size 为视口宽度的 十分之一 这个比例可自行修改 与喜欢的rem的比例相对应就好
+      var SCALE = 10;
+      // 最大宽度 1080
+      var MAX_WIDTH = 1080;
+      var docEl = doc.documentElement;
+      var resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize';
+      function recalc () {
+        var clientWidth = docEl.clientWidth;
+        if (!clientWidth) return;
+        if (clientWidth > MAX_WIDTH) {
+          clientWidth = MAX_WIDTH;
+        }
+        docEl.style.fontSize = (clientWidth / SCALE) + 'px';
+      };
+      if (!doc.addEventListener) return;
+      // 监听视口变化
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+    })(document, window);
+  </script>
+</head>
+
+<body>
+  <noscript>
+    <strong>We're sorry but vue-mobile doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+  </noscript>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
 </html>
