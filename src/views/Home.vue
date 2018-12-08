@@ -32,6 +32,8 @@ export default {
   align-items center
   font-size 14px
   padding px2rem(10px)
+  background #F9F9F9
+  border-radius 4px
   border-1px(#CCCCCC, 4px)
   .seach-icon
     display inline-block

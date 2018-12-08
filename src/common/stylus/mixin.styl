@@ -1,4 +1,4 @@
-// 一像素边框问题
+// 通过mixin形式的 1px border
 border-top-1px($color, $style = solid)
   position: relative
   &:before
@@ -13,11 +13,11 @@ border-top-1px($color, $style = solid)
     box-sizing border-box
     width 100%
     height 100%
-    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+    @media (min-resolution: 2dppx)
       width: 200%
       height: 200%
       transform: scale(.5) translateZ(0)
-    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    @media (min-resolution: 3dppx)
       width: 300%
       height: 300%
       transform: scale(.3333) translateZ(0)
@@ -36,11 +36,11 @@ border-left-1px($color, $style = solid)
     box-sizing border-box
     width 100%
     height 100%
-    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+    @media (min-resolution: 2dppx)
       width: 200%
       height: 200%
       transform: scale(.5) translateZ(0)
-    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    @media (min-resolution: 3dppx)
       width: 300%
       height: 300%
       transform: scale(.3333) translateZ(0)
@@ -59,11 +59,11 @@ border-right-1px($color, $style = solid)
     box-sizing border-box
     width 100%
     height 100%
-    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+    @media (min-resolution: 2dppx)
       width: 200%
       height: 200%
       transform: scale(.5) translateZ(0)
-    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    @media (min-resolution: 3dppx)
       width: 300%
       height: 300%
       transform: scale(.3333) translateZ(0)
@@ -82,11 +82,11 @@ border-bottom-1px($color, $style = solid)
     box-sizing border-box
     width 100%
     height 100%
-    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+    @media (min-resolution: 2dppx)
       width: 200%
       height: 200%
       transform: scale(.5) translateZ(0)
-    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    @media (min-resolution: 3dppx)
       width: 300%
       height: 300%
       transform: scale(.3333) translateZ(0)
@@ -107,12 +107,12 @@ border-1px($color = #ccc, $radius = 2px, $style = solid)
     box-sizing border-box
     width 100%
     height 100%
-    @media (-webkit-min-device-pixel-ratio: 2), (min-device-pixel-ratio: 2)
+    @media (min-resolution: 2dppx)
       width: 200%
       height: 200%
       border-radius: $radius * 2
       transform: scale(.5) translateZ(0)
-    @media (-webkit-min-device-pixel-ratio: 3), (min-device-pixel-ratio: 3)
+    @media (min-resolution: 3dppx)
       width: 300%
       height: 300%
       border-radius: $radius * 3
@@ -127,7 +127,7 @@ border-none()
 // 高清图片，匹配相应的2x 3x图
 bg-image($url)
   background-image: url($url + "@2x.png")
-  @media (-webkit-min-device-pixel-ratio: 3),(min-device-pixel-ratio: 3)
+  @media (min-resolution: 3dppx)
     background-image: url($url + "@3x.png")
 
 //以iphone6屏幕为标准屏幕的宽度
